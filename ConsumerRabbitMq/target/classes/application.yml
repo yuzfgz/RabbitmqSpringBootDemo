@@ -1,0 +1,41 @@
+server:
+  # 项目访问的端口号
+  port: 9002
+spring:
+  application:
+    # 项目名称
+    name: consumer-rabbitmq
+  # 配置RabbitMQ
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    # 虚拟主机
+    virtual-host: /
+
+    # 开启手动签收
+    listener:
+      simple:
+        # 限流机制必须开启手动签收
+        acknowledge-mode: manual
+        # 消费者最多拉取1条消息进行消费，当签收后不满10条则继续拉取消息
+#        prefetch: 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#日志格式
+logging:
+  pattern:
+    console: '%d{HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n'

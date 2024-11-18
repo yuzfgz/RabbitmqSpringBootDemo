@@ -1,0 +1,24 @@
+server:
+  # 项目访问的端口号
+  port: 9001
+spring:
+  application:
+    # 项目名称
+    name: provider-rabbitmq
+  # 配置RabbitMQ
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    # 虚拟主机
+    virtual-host: /
+    # 开启确认模式
+    publisher-confirm-type: correlated
+    # 开启回退模式
+    publisher-returns: true
+
+#日志格式
+logging:
+  pattern:
+    console: '%d{HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n'
